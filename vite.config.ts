@@ -4,6 +4,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import mkcert from 'vite-plugin-mkcert'
+import path from 'node:path'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -22,6 +23,10 @@ export default defineConfig({
     },
   },
   publicDir: './public',
+  build: {
+    sourcemap: false,
+    outDir: path.resolve(__dirname, process.env.VITE_OUTPUT_DIR || "dist"),
+  },
   server: {
     // Exposes your dev server and makes it accessible for the devices in the same network.
     host: true,
