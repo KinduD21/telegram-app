@@ -1,6 +1,7 @@
 import './assets/index.css';
 
 import { createApp } from 'vue';
+import { createVueless } from "vueless";
 import { retrieveLaunchParams } from '@tma.js/sdk-vue';
 
 import App from './App.vue';
@@ -13,6 +14,7 @@ import { publicUrl } from './helperts/publicUrl';
 // Mock the environment in case, we are outside Telegram.
 import './mockEnv';
 
+const vueless = createVueless();
 const launchParams = retrieveLaunchParams();
 const { tgWebAppPlatform: platform } = launchParams;
 const debug = (launchParams.tgWebAppStartParam || '').includes('debug') || import.meta.env.DEV;
@@ -26,6 +28,7 @@ init({
   .then(() => {
     const app = createApp(App);
     app.config.errorHandler = errorHandler;
+    app.use(vueless);
     app.use(router);
     app.use(TonConnectUIPlugin, { manifestUrl: publicUrl('tonconnect-manifest.json') });
     app.mount('#app');

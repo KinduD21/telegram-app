@@ -1,4 +1,5 @@
 import { fileURLToPath, URL } from 'node:url'
+import { Vueless, TailwindCSS, UnpluginComponents } from "vueless/plugin-vite";
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
@@ -12,6 +13,9 @@ export default defineConfig({
   plugins: [
     vue(),
     vueDevTools(),
+    Vueless(),
+    TailwindCSS(),
+    UnpluginComponents(),
     // Creates a custom SSL certificate valid for the local machine.
     // Using this plugin requires admin rights on the first dev-mode launch.
     // https://www.npmjs.com/package/vite-plugin-mkcert
