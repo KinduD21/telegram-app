@@ -9,6 +9,7 @@ const nonIndexRoutes = computed(() => routes.filter((r) => !!r.meta?.title));
 
 <template>
   <AppPage title="Home Page" :back="false">
+    <UButton label="Button" />
     <p>
       This page is a home page in this boilerplate. You can use the links below to visit other
       pages with their own functionality.

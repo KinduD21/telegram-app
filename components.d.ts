@@ -15,5 +15,6 @@ declare module 'vue' {
     IconTonConnect: typeof import('./src/components/IconTonConnect.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    UButton: typeof import('vueless/ui.button/UButton.vue')['default']
   }
 }
